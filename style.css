@@ -1,0 +1,155 @@
+/* Grundläggande stil för body */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    height: 100%;
+    width: 100%; /* Säkerställ att body och html täcker hela bredden */
+}
+
+/* Headern och bildcontainer */
+header {
+    position: relative;
+    height: 100vh; /* Full höjd på viewporten */
+    width: 100%;
+    background-color: #333; /* Testa med en solid färg */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Döljer eventuell överskjutande del av bilden */
+}
+
+/* Container för header-bilden */
+.header-image-container {
+    position: absolute; /* Absolut position för att täcka hela headern */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; /* Döljer eventuell överskjutande del av bilden */
+}
+
+/* Bilden ska täcka hela container */
+.header-image {
+    position: absolute; /* Absolut positionering för att täcka hela container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Täcker hela utrymmet och behåller proportioner */
+    opacity: 0.8;
+}
+
+
+/* Texten i headern */
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(3, 16, 41);
+    z-index: 2;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 2.7em;
+}
+
+/* Navigeringscontainer */
+.header-nav {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigeringslistan */
+.header-nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Navigeringsobjekt */
+.header-nav ul li {
+    margin: 0 15px;
+}
+
+/* Specialisering för center, left och right */
+.header-nav ul li.center {
+    margin: 0 auto;
+}
+
+.header-nav ul li.left,
+.header-nav ul li.right {
+    flex: 1;
+    text-align: center;
+}
+
+/* Länkarna i navigeringen */
+.header-nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    font-size: 1.2em;
+    padding: 17px 40px;
+    background-color: rgba(41, 149, 199, 0.427); /* Blå bakgrund med opacity */
+    border-radius: 100px; /* Rundad bakgrund */
+    transition: background-color 0.7s ease, transform 0.3s ease; /* Smooth transition */
+    white-space: nowrap;
+}
+
+/* Hover-effekt för länkarna */
+.header-nav ul li a:hover {
+    background-color: rgba(35, 84, 132, 0.7); /* Mörkare bakgrund vid hover */
+    transform: scale(1.05); /* Lätt förstoring vid hover */
+}
+
+/* Responsiv design för mindre skärmar */
+@media screen and (max-width: 768px) {
+    .header-text {
+        font-size: 1.8em;
+    }
+
+    .header-nav ul li a {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .header-nav ul li {
+        margin: 5px;
+    }
+
+    .header-nav {
+        bottom: 5%;
+    }
+}
+
+/* Extra responsiv design för mycket små skärmar, t.ex. mobiler */
+@media screen and (max-width: 480px) {
+    .header-text {
+        font-size: 1.5em;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+    }
+
+    .header-nav ul li {
+        margin: 5px 0;
+    }
+
+    .header-nav ul li.center {
+        margin: 10px 0;
+    }
+}
