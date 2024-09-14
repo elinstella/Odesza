@@ -1,0 +1,198 @@
+/* Grundläggande stil för body */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    height: 100%;
+    width: 100%; /* Säkerställ att body och html täcker hela bredden */
+}
+
+/* Headern och bildcontainer */
+header {
+    position: relative;
+    background-color: rgba(8, 5, 37, 0.334);
+    height: 100vh; /* Full höjd på viewporten */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Döljer eventuell överskjutande del av bilden */
+
+}
+
+.header-image-container {
+    position: relative;
+}
+
+.header-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px; /* Höjd på kanten */
+    background-color: #031221c4; /* Blå bakgrund på kanten */
+    z-index: 1; /* Sätt under texten */
+}
+
+.border-text-left,
+.border-text-right {
+    position: absolute;
+    top: 0; /* Placera texten vid kanten av headern */
+    line-height: 80px; /* Justera så att texten är vertikalt centrerad i kanten */
+    color: rgba(151, 211, 223, 0.864); /* Textfärg */
+    z-index: 2; /* Sätt ovanpå kanten */
+}
+
+.border-text-left {
+    left: 35px; /* Avstånd från vänster kant */
+    font-family: 'Oswald', sans-serif; /* Typsnitt för texten */
+    font-size: 1.7em; /* Justera textstorlek efter behov */
+    font-weight: 100;
+}
+
+.border-text-right {
+    right: 35px; /* Avstånd från höger kant */
+    top: 6px;
+    font-family: 'Raleway', sans-serif; /* Typsnitt för texten */
+    font-size: 1em; /* Justera textstorlek efter behov */
+}
+
+
+/* Container för header-bilden */
+.header-image-container {
+    position: absolute; /* Absolut position för att täcka hela headern */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; /* Döljer eventuell överskjutande del av bilden */
+}
+
+/* Bilden ska täcka hela container */
+.header-image {
+    position: absolute; /* Absolut positionering för att täcka hela container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Täcker hela utrymmet och behåller proportioner */
+    opacity: 0.85;
+}
+
+
+
+/* Texten i headern */
+.header-text {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(4, 10, 31);
+    z-index: 2;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 3.7em;
+    text-shadow: 0px 6px 6px rgba(135, 247, 255, 0.909);
+}
+
+/* Navigeringscontainer */
+.header-nav {
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigeringslistan */
+.header-nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Navigeringsobjekt */
+.header-nav ul li {
+    margin: 0 20px;
+}
+
+/* Specialisering för center, left och right */
+.header-nav ul li.center {
+    margin: 0 auto;
+}
+
+.header-nav ul li.left,
+.header-nav ul li.right {
+    flex: 1;
+    text-align: center;
+}
+
+/* Länkarna i navigeringen */
+.header-nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 550;
+    font-size: 1.4em;
+    text-decoration: underline;
+    padding: 35px 45px;
+    background-color: rgba(37, 140, 188, 0.736); /* Blå bakgrund med opacity */
+    border-radius: 100px; /* Rundad bakgrund */
+    transition: background-color 0.5s ease, transform 0.6s ease; /* Smooth transition */
+    white-space: nowrap;
+}
+
+/* Hover-effekt för länkarna */
+.header-nav ul li a:hover {
+    background-color: rgba(106, 238, 255, 0.719); /* Mörkare bakgrund vid hover */
+    transform: scale(1.05); /* Lätt förstoring vid hover */
+}
+
+/* Responsiv design för mindre skärmar */
+@media screen and (max-width: 768px) {
+    .header-text {
+        font-size: 1.8em;
+    }
+
+    .header-nav ul li a {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .header-nav ul li {
+        margin: 5px;
+    }
+
+    .header-nav {
+        bottom: 5%;
+    }
+}
+
+/* Extra responsiv design för mycket små skärmar, t.ex. mobiler */
+@media screen and (max-width: 480px) {
+    .header-text {
+        font-size: 1.5em;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+    }
+
+    .header-nav ul li {
+        margin: 5px 0;
+    }
+
+    .header-nav ul li.center {
+        margin: 10px 0;
+    }
+}
